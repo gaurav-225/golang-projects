@@ -1,3 +1,8 @@
+References
+    https://github.com/AkhilSharma90/GO-Kafka-Example/tree/master
+    https://www.youtube.com/watch?v=j6bqJKxb2w0
+    
+
 - On kafka, microservies can publish events
 - microservices can subscribe to vents
 - kafka can store events for later retrieval
@@ -28,6 +33,17 @@ go get github.com/gofiber/fiber/v2
 go get github.com/IBM/sarama
 ```
 
+```bash
+docker-compose up -d
+go run worker/worker.go
+go run producer/producer.go
+
+curl --location --request POST '0.0.0.0:3000/api/v1/comments' \
+--header 'Content-Type: application/json' \
+--data-raw '{ "text":"message 1" }'
+```
+
+--- 
 
 # Docker command
 ```bash
